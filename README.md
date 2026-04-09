@@ -16,7 +16,7 @@ Some discussions on Reddit say that the risks outweight the benefit, so just go 
 - Wiki: [Vaultwarden Wiki](https://github.com/dani-garcia/vaultwarden/wiki)
 
 
-## Pre-requisites
+## Prerequisites
 
 - Docker or Docker alternative.
 
@@ -36,12 +36,12 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
       -out ./ssl/cert.pem \
       -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
     ```
-1. Start the containers.
+1. Start the containers:
     ```sh
     docker compose up
     ```
-1. Open in the browser: https://127.0.0.1 OR https://localhost
-    - Uses HTTPS but your browser will probably warn you that this certificate is not secure and you have to click to proceed anyway.
+1. Open in the browser at https://127.0.0.1 OR https://localhost
+    - This use HTTPS but your browser will probably warn you that this certificate is not secure then you have to click to proceed anyway.
 
 See [docker-compose.yaml](/docker-compose.yaml). This setup persists the Vaultwarden data in a volume on the host, in the repo, but you might want to put this is a global location.
 

@@ -38,7 +38,7 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
 If you want to access the app through browser extension:
 
 1. Setup persistent server with strong security. This should include the Vaultwarden container and a reverse proxy (as a managed solution like API Gateway or as a container).
-    - Cloud: This can be on AWS or Digital Ocean.
+    - Cloud: This can be on AWS or Digital Ocean or Oracle free tier.
     - On premises: On your own computer. Run localhost and setup public IP with Cloudfare or Ngrok. This needs to be static.
 1. Install Bitwarden extension in the browser.
 1. Login to the extension. Pick self-hosted and enter your custom URL.
@@ -47,6 +47,8 @@ Once you have a user registered and want to prevent more registrations, set `SIG
 
 ### Notes
 
+- Check what CPU and RAM requirements you need.
+- Kubernetes is overkill - the RAM Kubernetes uses is about 7x what VaultWarden uses.
 - Make sure your data is **persisted** - `vw-data` will container SQLite DBs and you want to make sure these are not lost. Perhaps another DB backend can be used.
 - The flow for setting up and configure certificates and configuring to deploy depends on what solution you choose and that is not covered here. Keep your certificates **secret**.
 - If you want to be more secure than Bitwarden, make sure the Vaultwarden app is not available publically on the internet and rather on a private network.

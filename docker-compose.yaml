@@ -1,0 +1,23 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      - SIGNUPS_ALLOWED=true # Set to false once you create your account
+    volumes:
+      - ./vw-data:/data
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+      # Uncomment the line below after you generate your self-signed certs
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - vaultwarden

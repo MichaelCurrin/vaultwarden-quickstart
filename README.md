@@ -5,7 +5,7 @@
 
 - Repo: [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
 - Wiki: [Vaultwarden Wiki](https://github.com/dani-garcia/vaultwarden/wiki)
-    - [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples)
+
 
 ## Pre-requisites
 
@@ -13,9 +13,7 @@
 
 ## Security
 
-Note that VaultWarden is setup by default to only be accessible with HTTPS.
-
-This requires using a reverse proxy (Nginx as setup here) and SSL certificate.
+Note that VaultWarden is setup by default to only be accessible with **HTTPS**. This requires using a reverse proxy (Nginx as setup here) and SSL certificate. See [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples) in the Wiki for alternatives and more info.
 
 ## Setup and run locally
 
@@ -50,7 +48,7 @@ Once you have a user registered and want to prevent more registrations, set `SIG
 ### Notes
 
 - Make sure your data is **persisted** - `vw-data` will container SQLite DBs and you want to make sure these are not lost. Perhaps another DB backend can be used.
-- The flow for setting up and configure certificates and configuring to deploy depends on what solution you choose and that is not covered here.
+- The flow for setting up and configure certificates and configuring to deploy depends on what solution you choose and that is not covered here. Keep your certificates **secret**.
 - If you want to be more secure than Bitwarden, make sure the Vaultwarden app is not available publically on the internet and rather on a private network.
 
 ## License

@@ -32,8 +32,9 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
     docker compose up
     ```
 1. Open in the browser: https://127.0.0.1 OR https://localhost
+    - Uses HTTPS but your browser will probably warn you that this certificate is not secure and you have to click to proceed anyway.
 
-Note that you can use HTTPS but your browser will probably warn you that this certificate is not secure and you have to click to proceed anyway.
+See [docker-compose.yaml](/docker-compose.yaml). This setup persists the VaultWarden data in a volume on the host, in the repo, but you might want to put this is a global location.
 
 ## Deploy
 

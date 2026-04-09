@@ -33,6 +33,8 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
     ```
 1. Open in the browser: https://127.0.0.1
 
+Note that you can use HTTPS but your browser will probably warn you that this certificate is not secure and you have to click to proceed anyway.
+
 ## Deploy
 
 If you want to access the app through browser extension:
@@ -47,6 +49,7 @@ Once you have a user registered and want to prevent more registrations, set `SIG
 
 ### Notes
 
+- For using Ngrok, setup Ngrok up as a service that starts when you machine reboots.
 - Check what CPU and RAM requirements you need.
 - Kubernetes is overkill - the RAM Kubernetes uses is about 7x what VaultWarden uses.
 - Make sure your data is **persisted** - `vw-data` will container SQLite DBs and you want to make sure these are not lost. Perhaps another DB backend can be used.

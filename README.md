@@ -1,6 +1,15 @@
 # Vaultwarden quickstart
 > Setup a free self-hosted alternative to Bitwarden
 
+## Motivation and disclaimer
+
+Self-hosting means more control over your data (where it is stored, and if hackers target Bitwarden then your data is not there, and also Vaultwarden is an open source solution so you're not locked into Bitwarden as an orgasation/provider).
+
+But there are risks like your DB or server getting hacked or getting locked out, plus the cost and effort needed to setup and run this yourself and to patch with security updates.
+
+Some discussions on Reddit say that the risks outweight the benefit, so just go for the paid or free tier for BitWarden.
+
+
 ## Links
 
 - Repo: [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
@@ -13,7 +22,7 @@
 
 ## Security
 
-Note that VaultWarden is setup by default to only be accessible with **HTTPS**. This requires using a reverse proxy (Nginx as setup here) and SSL certificate. See [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples) in the Wiki for alternatives and more info.
+Note that Vaultwarden is setup by default to only be accessible with **HTTPS**. This requires using a reverse proxy (Nginx as setup here) and SSL certificate. See [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples) in the Wiki for alternatives and more info.
 
 ## Setup and run locally
 
@@ -34,7 +43,7 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
 1. Open in the browser: https://127.0.0.1 OR https://localhost
     - Uses HTTPS but your browser will probably warn you that this certificate is not secure and you have to click to proceed anyway.
 
-See [docker-compose.yaml](/docker-compose.yaml). This setup persists the VaultWarden data in a volume on the host, in the repo, but you might want to put this is a global location.
+See [docker-compose.yaml](/docker-compose.yaml). This setup persists the Vaultwarden data in a volume on the host, in the repo, but you might want to put this is a global location.
 
 ## Deploy
 
@@ -52,7 +61,7 @@ Once you have a user registered and want to prevent more registrations, set `SIG
 
 - For using Ngrok, setup Ngrok up as a service that starts when you machine reboots.
 - Check what CPU and RAM requirements you need.
-- Kubernetes is overkill - the RAM Kubernetes uses is about 7x what VaultWarden uses.
+- Kubernetes is overkill - the RAM Kubernetes uses is about 7x what Vaultwarden uses.
 - Make sure your data is **persisted** - `vw-data` will container SQLite DBs and you want to make sure these are not lost. Perhaps another DB backend can be used.
 - The flow for setting up and configure certificates and configuring to deploy depends on what solution you choose and that is not covered here. Keep your certificates **secret**.
 - If you want to be more secure than Bitwarden, make sure the Vaultwarden app is not available publically on the internet and rather on a private network.

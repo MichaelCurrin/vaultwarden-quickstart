@@ -1,6 +1,8 @@
 # Vaultwarden quickstart
 > Setup a free self-hosted alternative to Bitwarden
 
+_Note: This guide is written for macOS / Linux and you have to adapt it if you want to run on Windows._
+
 ## Motivation and disclaimer
 
 Self-hosting means more control over your data (where it is stored, and if hackers target Bitwarden then your data is not there, and also Vaultwarden is an open source solution so you're not locked into Bitwarden as an orgasation/provider).
@@ -19,6 +21,8 @@ Some discussions on Reddit say that the risks outweight the benefit, so just go 
 ## Prerequisites
 
 - Docker or Docker alternative.
+- OpenSSL - install as per [guide](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/shell/commands/openssl.html).
+
 
 ## Security
 

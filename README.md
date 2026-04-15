@@ -1,15 +1,8 @@
 # Vaultwarden quickstart
 > Setup a free self-hosted alternative to Bitwarden
 
-_Note: This guide is written for macOS / Linux and you have to adapt it if you want to run on Windows._
 
-## Motivation and disclaimer
-
-Self-hosting means more control over your data (where it is stored, and if hackers target Bitwarden then your data is not there, and also Vaultwarden is an open source solution so you're not locked into Bitwarden as an orgasation/provider).
-
-But there are risks like your DB or server getting hacked or getting locked out, plus the cost and effort needed to setup and run this yourself and to patch with security updates.
-
-Some discussions on Reddit say that the risks outweight the benefit, so just go for the paid or free tier for BitWarden.
+This repo is can be up and running locally in a few commands so this is an easy experiment, but if you want to host it on the cloud so you can integrate with the Bitwarden extension, that is a lot more involved. See [Notes](#notes) for more info.
 
 
 ## Links
@@ -22,11 +15,6 @@ Some discussions on Reddit say that the risks outweight the benefit, so just go 
 
 - Docker or Docker alternative.
 - OpenSSL - install as per [guide](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/shell/commands/openssl.html).
-
-
-## Security
-
-Note that Vaultwarden is setup by default to only be accessible with **HTTPS**. This requires using a reverse proxy (Nginx as setup here) and SSL certificate. See [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples) in the Wiki for alternatives and more info.
 
 ## Setup and run locally
 
@@ -49,7 +37,8 @@ This is good to test running Vaultwarden locally and access as a web app. Note t
 
 See [docker-compose.yaml](/docker-compose.yaml). This setup persists the Vaultwarden data in a volume on the host, in the repo, but you might want to put this is a global location.
 
-## Deploy
+
+## Deploy a self-hosted cloud solution
 
 If you want to access the app through browser extension:
 
@@ -61,7 +50,7 @@ If you want to access the app through browser extension:
 
 Once you have a user registered and want to prevent more registrations, set `SIGNUPS_ALLOWED` to be false the environment variables such as [docker-compose.yaml](/docker-compose.yaml).
 
-### Notes
+### Deploy notes
 
 - For using Ngrok, setup Ngrok up as a service that starts when you machine reboots.
 - Check what CPU and RAM requirements you need.
@@ -69,6 +58,25 @@ Once you have a user registered and want to prevent more registrations, set `SIG
 - Make sure your data is **persisted** - `vw-data` will container SQLite DBs and you want to make sure these are not lost. Perhaps another DB backend can be used.
 - The flow for setting up and configure certificates and configuring to deploy depends on what solution you choose and that is not covered here. Keep your certificates **secret**.
 - If you want to be more secure than Bitwarden, make sure the Vaultwarden app is not available publically on the internet and rather on a private network.
+
+## Notes
+
+### Motivation and disclaimer
+
+Self-hosting means more control over your data (where it is stored, and if hackers target Bitwarden then your data is not there, and also Vaultwarden is an open source solution so you're not locked into Bitwarden as an orgasation/provider).
+
+But there are risks to this approach, like your DB or server gets hacked or getting locked out, plus the cost and effort needed to setup and run this yourself and to patch with security updates.
+
+Some discussions on Reddit say that the risks outweight the benefit, so then you can just accept the paid or free tier from BitWarden.
+
+### Security note
+
+Note that Vaultwarden is setup by default to only be accessible with **HTTPS**. This requires using a reverse proxy (Nginx as setup here) and SSL certificate. See [Proxy examples](https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples) in the Wiki for alternatives and more info.
+
+### Operating system
+
+This guide is written for macOS / Linux and you have to adapt it if you want to run on Windows. Specifically, generating a certificate.
+
 
 ## License
 
